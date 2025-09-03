@@ -7,11 +7,15 @@ export const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'time-sheet',
     pathMatch: 'full',
   },
+  // {
+  //   path: 'login',
+  //   loadComponent: () => import('./login/login.page').then( m => m.LoginPage)
+  // },
   {
-    path: 'login',
-    loadComponent: () => import('./login/login.page').then( m => m.LoginPage)
+    path: 'time-sheet',
+    loadComponent: () => import('./time-sheet/time-sheet.page').then( m => m.TimeSheetPage)
   },
 ];
