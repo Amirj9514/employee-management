@@ -1,20 +1,110 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
+<ion-header [translucent]="true" class="home_page_header">
+  <div class="home_page_header_content">
+    <div class="home_page_header_icon">
+      <div class="flex align-items-center justify-content-center svgIcon" appSvg="menu"></div>
+    </div>
+    <div class="home_page_header_title">Home</div>
+  </div>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="main_container">
+  <div class="home_page_container">
+    <div class="user_detail_container">
+      <div>Welcome Ali Ahmad</div>
+      <small>User Active</small>
+    </div>
+    <div class="action_btn_container grid">
+      <div class="col-6 md:col-4">
+        <div class="action_box">
+          <div class="icon_container box1">
+            <div class="svgIcon" appSvg="timeSheet"></div>
+          </div>
+          <div class="title">Timesheet</div>
+          <div class="description">Daily time sheet</div>
+        </div>
+      </div>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+
+      <div class="col-6 md:col-4">
+        <div class="action_box">
+          <div class="icon_container box2">
+            <div class="svgIcon" appSvg="clockIn"></div>
+          </div>
+
+          <div class="status_pill">
+            <div class="flex align-items-center justify-content-center" appSvg="dot"></div>
+            <div>Clock In</div>
+          </div>
+          <div class="title">Clock In/Out</div>
+          <div class="description">Daily time update</div>
+        </div>
+      </div>
+
+      <div class="col-6 md:col-4">
+        <div class="action_box">
+          <div class="icon_container box3">
+            <div class="svgIcon" appSvg="notification"></div>
+          </div>
+          <div class="title">Notifications</div>
+          <div class="description">Daily updated</div>
+        </div>
+      </div>
+
+      <div class="col-6 md:col-4">
+        <div class="action_box">
+          <div class="icon_container box4">
+            <div class="svgIcon" appSvg="saving"></div>
+          </div>
+          <div class="title">My Tips</div>
+          <div class="description">Daily tips details</div>
+        </div>
+      </div>
+
+      <div class="col-6 md:col-4">
+        <div class="action_box">
+          <div class="icon_container box5">
+            <div class="svgIcon" appSvg="report"></div>
+          </div>
+          <div class="title">My schedule</div>
+          <div class="description">sheets for every report</div>
+        </div>
+      </div>
+      <div class="col-6 md:col-4">
+        <div class="action_box">
+          <div class="icon_container box6">
+            <div class="svgIcon" appSvg="qrCode"></div>
+          </div>
+          <div class="title">QR Code</div>
+          <div class="description">All QR codes</div>
+        </div>
+      </div>
+
+    </div>
+    <div class="history_container grid w-full">
+      @for (item of [1,2,3]; track $index) {
+      <div class="col-12 md:col-4">
+        <div class="order_card">
+          <div class="table_container">
+            <div>Table No</div>
+            <div>05</div>
+          </div>
+
+          <div class="order_card_detail">
+            <div class="title1">Call Server</div>
+            <div class="title2">Can you please Come over!</div>
+            <div class="flex align-items-end justify-content-between">
+              <div class="discription">
+                <div>Section: Grand Budapest</div>
+                <div>Date: july 12 12:06 PM</div>
+              </div>
+              <div class="accept_btn">
+                Accept
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      }
+    </div>
   </div>
 </ion-content>

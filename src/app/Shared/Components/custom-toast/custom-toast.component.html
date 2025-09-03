@@ -1,0 +1,9 @@
+<ion-toast
+  [isOpen]="isToastOpen"
+  class="custom-toast"
+  [message]="toastData?.message ? toastData?.message : 'Something Went Wrong!'"
+  [duration]="8000"
+    [buttons]="toastButtons"
+  (didDismiss)="setOpen(false)"
+  position="top"
+></ion-toast>

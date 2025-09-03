@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+ apiUrl:'https://apis.piecepie.app/index.php/',
 };

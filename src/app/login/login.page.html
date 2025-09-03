@@ -1,0 +1,57 @@
+<ion-content [fullscreen]="true" class="main_container">
+  <div class="login_container">
+    <div class="login_box_1">
+      <div class="logo">
+        <img src="../../assets/images/mainlogo.png" alt="Logo">
+      </div>
+    </div>
+    <div class="login_box_2">
+      <div class="login_form_container">
+
+        <div class="login_discription">
+          <div class="logo_mobile">
+            <img src="../../assets/images/mainlogo.png" alt="Logo">
+          </div>
+          <div class="login_title">“Empowering Teams, Driving Growth” – <span>Nova Flare</span></div>
+          <div class="login_subtitle">Nova Flare Connect delivers reliable POS systems, secure payment solutions, and smooth e-commerce integrations to drive your business forward.</div>
+        </div>
+        <div class="login_form">
+          <div class="login_form_title text-center">Welcome Back, Team</div>
+          <div class="login_form_subtitle text-center">
+            @if(activeStep === 'id') {
+              <div>{{userId || 'Enter ID' }}</div>
+            } @else {
+              <div>{{password || 'Enter Password' }}</div>
+            }
+          </div>
+          <div class="login_form_pad grid w-full">
+            @for (num of [1,2,3,4,5,6,7,8,9]; track $index) {
+              <div class="col-4 col_pad">
+                <div class="num clickAnimation" (click)="addDigit(num)">{{ num }}</div>
+              </div>
+            }
+            <div class="col-4 col_pad">
+              <div class="num clickAnimation" (click)="removeAll()">C</div>
+            </div>
+             <div class="col-4 col_pad">
+              <div class="num clickAnimation" (click)="addDigit(0)">0</div>
+            </div>
+             <div class="col-4 col_pad">
+              <div class="num clickAnimation" (click)="removeDigit()">X</div>
+            </div>
+
+            <div class="col-12 col_pad">
+              <div class="pad_btn loginBtn clickAnimation" (click)="callApiLogin()">Login</div>
+            </div>
+            <div class="col-6 col_pad">
+              <div class="pad_btn scanBtn clickAnimation">Scan</div>
+            </div>
+            <div class="col-6 col_pad">
+              <div class="pad_btn cancelBtn clickAnimation" (click)="cancelLogin()">Cancel</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
