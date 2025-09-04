@@ -8,15 +8,15 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="main_container">
-  <div class="card mt-3">
+  <div class="card mt-5">
     <div class="Content-Wrapper">
       <div class="details">
-        <div class="text-xl mb-1">Name: Muhammad Ali</div>
-        <div class="font-light text-sm white-space-nowrap">
+        <div class="text-3xl mb-2">Muhammad Ali</div>
+        <div class="text-sm white-space-nowrap" style="color: #979797;">
           Monday 9:30 AM July 12, 2025
         </div>
       </div>
-      <div class="current-time flex align-items-center">
+      <div class="current-time flex align-items-center gap-2">
         <div [appSvg]="'clock'" class="svgIcon"></div>
         <span class="font-semibold">{{ currentTime() }}</span>
       </div>
@@ -28,14 +28,14 @@
     </div>
 
     <div class="timeFrame-tabs">
-      <button pButton [ngClass]="{'active-tab': activeTab === 'today'}" (click)="setActiveTab('today')">
-        <span pButtonLabel>Today</span>
+      <button pButton  [ngClass]="{'active-tab': activeTab === 'today'}" (click)="setActiveTab('today')">
+        <span pButtonLabel class="font-semibold">Today</span>
       </button>
-      <button pButton [ngClass]="{'active-tab': activeTab === 'weekly'}" (click)="setActiveTab('weekly')">
-        <span pButtonLabel>Weekly</span>
+      <button pButton  [ngClass]="{'active-tab': activeTab === 'weekly'}" (click)="setActiveTab('weekly')">
+        <span pButtonLabel class="font-semibold">Weekly</span>
       </button>
-      <button pButton [ngClass]="{'active-tab': activeTab === 'monthly'}" (click)="setActiveTab('monthly')">
-        <span pButtonLabel>Monthly</span>
+      <button pButton  [ngClass]="{'active-tab': activeTab === 'monthly'}" (click)="setActiveTab('monthly')">
+        <span pButtonLabel class="font-semibold" >Monthly</span>
       </button>
     </div>
 

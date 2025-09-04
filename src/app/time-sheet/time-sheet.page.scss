@@ -71,7 +71,7 @@
       }
 
       span {
-        font-size: 2.5rem;
+        font-size: 2rem;
       }
     }
 
@@ -88,9 +88,9 @@
 
   .timeFrame-tabs {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     gap: 2rem;
-    padding: 20px;
+    padding: 32px 20px;
 
     button {
       min-width: 25%;
@@ -102,7 +102,7 @@
       border-radius: 8px;
       border: none;
       transition: background-color 0.3s ease, color 0.3s ease;
-      font-size: 2rem;
+      font-size: 20px;
       text-align: center;
 
       &.active-tab {
@@ -136,6 +136,7 @@
       .current-time {
         justify-content: center;
         gap: 5px;
+        margin-bottom: 20px;
 
         .svgIcon {
           width: 20px;
@@ -234,7 +235,7 @@
 
 @media (max-width: 550px) {
   .home_page_header {
-    background-color: transparent;
+    background-color: #1E1E1E;
     box-shadow: none;
   }
 
