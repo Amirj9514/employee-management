@@ -1,4 +1,58 @@
-<ion-app>
+<!-- <ion-app>
   <app-custom-toast></app-custom-toast>
   <ion-router-outlet></ion-router-outlet>
+</ion-app> -->
+
+<ion-app>
+  <app-custom-toast></app-custom-toast>
+  <div id="menu">
+    <ion-menu contentId="main-content" side="start" menuId="first" type="overlay">
+      <ion-header>
+        <ion-toolbar>
+          <div class="toolbar-row">
+            <span class="menu-title">Menu</span>
+            <div class="svgIcon" appSvg="arrowRight"></div>
+          </div>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <div class="text-white main-body text-sm">
+          <div class="menu-item">
+            <div class="svgIcon" appSvg="tasks"></div>
+            <span>Tasks</span>
+          </div>
+          <div class="menu-item">
+            <div class="svgIcon" appSvg="permissions"></div>
+            <span>Permissions</span>
+          </div>
+          <div class="menu-item">
+            <div class="svgIcon" appSvg="accounts"></div>
+            <span>Add More Accounts</span>
+          </div>
+          <div class="menu-item">
+            <div class="svgIcon" appSvg="switch"></div>
+            <span>Switch Accounts</span>
+          </div>
+          <div class="menu-item">
+            <div class="svgIcon" appSvg="profile"></div>
+            <span>Mohammad Ali</span>
+          </div>
+          <div class="menu-item">
+            <div class="svgIcon" appSvg="profile"></div>
+            <span>Zohra awam</span>
+          </div>
+        </div>
+      </ion-content>
+      <ion-footer>
+        <div class="logout-btn">
+          <div class="svgIcon" appSvg="logout"></div>
+          <span>Logout</span>
+        </div>
+      </ion-footer>
+    </ion-menu>
+  </div>
+
+  <div class="ion-page" id="main-content">
+    <ion-router-outlet></ion-router-outlet>
+  </div>
 </ion-app>

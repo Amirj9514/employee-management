@@ -3,3 +3,98 @@
   --background: #1e1e1e;
   color: #ffffff;
 }
+
+#menu {
+  ion-header {
+    --background: #2d2d2d !important;
+    --color: #ffffff !important;
+  }
+
+  ion-toolbar {
+    --background: #2d2d2d !important;
+    --color: #ffffff !important;
+    padding-top: 20px;
+
+    .toolbar-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0px 20px;
+      align-items: center;
+
+      .menu-title {
+        font-size: 25px;
+        font-weight: 500;
+      }
+
+      .svgIcon {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #004aca;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  ion-content {
+    --background: #2d2d2d !important;
+    overflow-y: auto;        
+    overscroll-behavior: contain;  
+
+    &::-webkit-scrollbar {
+      width: 0px;
+      background: transparent;
+    }
+
+    .main-body {
+      padding: 45px 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .menu-item {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+
+        .svgIcon {
+          width: 22px;
+          height: 22px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+  }
+
+  ion-footer {
+    padding: 40px 10px;
+    background: #2d2d2d !important;
+
+    .logout-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #004aca;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 500;
+      border-radius: 10px;
+      padding: 12px 0;
+      cursor: pointer;
+      width: 100%;
+
+      .svgIcon {
+        width: 22px;
+        height: 22px;
+      }
+    }
+  }
+}

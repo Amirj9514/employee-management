@@ -136,6 +136,18 @@
     }
   }
 
+//   .home_page_header_icon ion-menu-button {
+//   width: 40px;
+//   height: 40px;
+//   // background-color: #004aca;
+//   border-radius: 10px;
+//   color: #fff;
+//   font-size: 20px;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// }
+
   .history_container {
     margin-top: 50px;
 
@@ -197,4 +209,28 @@
       }
     }
   }
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(65, 65, 65, 1);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #000;
+    border-radius: 10px;
+
+    &:hover {
+        background: #000;
+    }
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(65, 65, 65, 1) #000;
 }
