@@ -17,5 +17,9 @@ export const routes: Routes = [
   {
     path: 'time-sheet',
     loadComponent: () => import('./time-sheet/time-sheet.page').then( m => m.TimeSheetPage)
+  },  {
+    path: 'notification',
+    loadComponent: () => import('./notification/notification.page').then( m => m.NotificationPage)
   },
+
 ];
