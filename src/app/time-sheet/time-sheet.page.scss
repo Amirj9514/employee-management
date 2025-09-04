@@ -5,36 +5,281 @@
   position: relative;
   display: flex;
   align-items: center;
+}
 
-  &_content {
-    width: 100%;
-    display: flex;
-    align-items: center;
+.home_page_header_content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.home_page_header .home_page_header_icon {
+  position: absolute;
+  left: 25px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #004aca;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.home_page_header .home_page_header_icon .svgIcon {
+  font-size: 20px;
+  color: #ffffff;
+}
+
+.home_page_header .home_page_header_title {
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.card {
+  padding: 0px 30px;
+}
+
+.card .Content-Wrapper {
+  width: 100%;
+  padding: 30px;
+  background-color: #2d2d2d;
+  box-shadow: 0px 4px 10px 0px #00000040;
+  border-radius: 10px;
+  color: #ffffff;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas: "details time" "cta time";
+  align-items: center;
+}
+
+.card .details {
+  grid-area: details;
+  margin-bottom: 1.5rem;
+}
+
+.card .current-time {
+  grid-area: time;
+  justify-content: flex-end;
+}
+
+.card .current-time .svgIcon {
+  width: 45px;
+  height: 45px;
+  display: inline-block; /* makes sure it keeps its box */
+}
+
+.card .current-time span {
+  font-size: 2.5rem;
+}
+
+.card .cta {
+  grid-area: cta;
+}
+
+.card .cta button {
+  padding-left: 70px;
+  padding-right: 70px;
+  border-radius: 5px;
+  background-color: rgba(96, 188, 148, 1);
+}
+
+.card .timeFrame-tabs {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 20px;
+}
+
+.card .timeFrame-tabs button {
+  // flex: 1;
+  min-width: 25%;
+  max-width: 25%;
+  background-color: #2d2d2d;
+  color: #ffffff;
+  box-shadow: 0px 4px 10px 0px #00000040;
+  padding: 20px;
+  border-radius: 8px;
+  border: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.card .timeFrame-tabs button.active-tab {
+  background-color: rgba(0, 74, 202, 1);
+  color: #ffffff;
+}
+
+.table-wrapper {
+  display: block;
+  padding: 0px 20px;
+  border-radius: 10px;
+  border: none;
+}
+
+.data-card {
+  display: none;
+}
+
+::ng-deep .p-datatable-table-container {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+::ng-deep .p-datatable-table {
+  width: 100%;
+}
+
+::ng-deep .p-datatable-thead>tr>th {
+  text-align: center;
+  color: black;
+  font-weight: 600;
+  border: none !important;
+  padding: 12px;
+}
+
+::ng-deep .p-datatable-tbody>tr>td {
+  text-align: center;
+  border: none !important;
+  color: #ffffff;
+  padding: 10px;
+}
+
+::ng-deep .p-datatable-tbody>tr:nth-child(odd) {
+  background-color: rgba(65, 65, 65, 1);
+}
+
+::ng-deep .p-datatable-tbody>tr:nth-child(even) {
+  background-color: #000000;
+}
+
+::ng-deep .p-datatable-tbody {
+  background-color: #2d2d2d;
+}
+
+::ng-deep .p-datatable-emptymessage>td {
+  background-color: #2d2d2d !important;
+  color: #ffffff !important;
+  text-align: center;
+  font-style: italic;
+  border: none !important;
+}
+
+@media (max-width: 550px) {
+  .home_page_header {
+    background-color: transparent;
+    box-shadow: none;
   }
 
-  .home_page_header_icon {
-    position: absolute;
-    left: 25px;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #004aca;
-    border-radius: 10px;
-    cursor: pointer;
-
-    .svgIcon {
-      font-size: 20px;
-      color: #ffffff;
-    }
+  .card {
+    padding: 0 10px;
   }
 
-  .home_page_header_title {
-    width: 100%;
+  .card .Content-Wrapper {
+    grid-template-columns: 1fr;
+    grid-template-areas: "details" "time" "cta";
     text-align: center;
-    font-size: 20px;
-    color: #ffffff;
+    padding: 20px;
+    margin-bottom: 0.25rem;
+    gap: 5px;
+  }
+
+  .card .Content-Wrapper .details {
+    margin-bottom: 0.5rem;
+    width: 100%;
+    font-stretch: 120%;
+    text-align: center;
+  }
+
+  .card .Content-Wrapper .current-time {
+    justify-content: center;
+    gap: 5px;
+  }
+
+ .card .current-time  .svgIcon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .card .Content-Wrapper .current-time span {
+    font-size: 1.5rem;
     font-weight: 600;
   }
+
+  .card .Content-Wrapper .cta {
+    width: 100%;
+  }
+
+  .card .Content-Wrapper .cta button {
+    width: 75%;
+    padding: 14px 0;
+    border-radius: 5px;
+  }
+
+  .card .timeFrame-tabs {
+    padding: 10px 1px;
+    gap: 10px;
+    margin-bottom: 0.25rem;
+  }
+
+  .card .timeFrame-tabs button {
+    font-size: 13px;
+    padding: 8px;
+    border-radius: 6px;
+  }
+
+  .table-wrapper {
+    overflow-x: auto;
+    display: none;
+  }
+
+  .data-card {
+    display: block;
+    background-color: rgba(45, 45, 45, 1);
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: white;
+    font-size: x-small;
+    margin-bottom: 1rem;
+  }
+
+  .data-card div {
+    padding: 2px;
+  }
+
+  ::ng-deep .p-datatable-table-container {
+    overflow-x: auto;
+  }
+
+  ::ng-deep .p-datatable-table {
+    min-width: 50rem;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(65, 65, 65, 1);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: black;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: black;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(65, 65, 65, 1) black;
 }

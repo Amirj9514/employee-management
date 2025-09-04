@@ -46,8 +46,17 @@ export class SvgDirective implements OnInit {
       case 'dot':
         svgMarkup = `<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z"></path></svg>`;
         break;
-      
+
+          case 'arrowLeft':
+        svgMarkup = `<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg>`;
+        break;
+
+        case 'clock':
+        svgMarkup = `<svg viewBox="0 0 47 47" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M23.5 0C10.5025 0 0 10.5025 0 23.5C0 36.4975 10.5025 47 23.5 47C36.4975 47 47 36.4975 47 23.5C47 10.5025 36.4975 -6.92632e-07 23.5 0ZM30.5207 30.5256L22.8533 26.3811C22.175 26.0144 21.6079 25.4722 21.2112 24.8111C20.8102 24.1429 20.5985 23.3783 20.5985 22.5991V9.56567C20.5985 8.28835 21.6339 7.25288 22.9112 7.25288H22.9277C24.2051 7.25288 25.2405 8.28835 25.2405 9.56567V22.3973L32.7236 26.4583C33.8464 27.0676 34.2625 28.4717 33.6531 29.5944C33.0446 30.7156 31.643 31.1322 30.5207 30.5256Z" fill="url(#paint0_linear_2691_2860)"/> <defs> <linearGradient id="paint0_linear_2691_2860" x1="0.0821278" y1="-0.719349" x2="49.3683" y2="50.2534" gradientUnits="userSpaceOnUse"> <stop stop-color="#97E0FF"/> <stop offset="1" stop-color="#1075FF"/> </linearGradient> </defs> </svg>`;
+        break;
+
     }
+
 
      this.el.nativeElement.innerHTML = svgMarkup;
   }
