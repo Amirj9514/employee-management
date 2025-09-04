@@ -1,13 +1,37 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>notification</ion-title>
-  </ion-toolbar>
+<ion-header class="home_page_header">
+  <div class="home_page_header_content">
+    <div class="home_page_header_icon">
+      <div class="flex align-items-center justify-content-center svgIcon" appSvg="arrowLeft"></div>
+    </div>
+    <div class="home_page_header_title">Notification</div>
+  </div>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">notification</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="main_container">
+    <div class="history_container grid w-full">
+      @for (item of notifications; track $index) {
+      <div class="col-12 md:col-4">
+        <div class="order_card">
+          <div class="table_container">
+            <div>Table No</div>
+            <div>{{item.table}}</div>
+          </div>
+
+          <div class="order_card_detail">
+            <div class="title1">Call Server</div>
+            <div class="title2">Can you please Come over!</div>
+            <div class="flex align-items-end justify-content-between">
+              <div class="discription">
+                <div>Section:{{item.section}}</div>
+                <div>Date:{{item.date}}</div>
+              </div>
+              <div class="accept_btn">
+                Accept
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      }
+    </div>
 </ion-content>

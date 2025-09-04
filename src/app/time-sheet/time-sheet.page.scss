@@ -82,6 +82,10 @@
         padding: 16px 70px;
         border-radius: 5px;
         background-color: rgba(96, 188, 148, 1);
+
+        &:hover {
+          background-color: darken(#09BC95, 10%);
+        }
       }
     }
   }
@@ -156,6 +160,10 @@
           width: 75%;
           padding: 14px 0;
           border-radius: 5px;
+
+          &:hover {
+            background-color: darken(#09BC95, 10%);
+          }
         }
       }
     }
@@ -197,7 +205,7 @@
     width: 100%;
   }
 
-  .p-datatable-thead > tr > th {
+  .p-datatable-thead>tr>th {
     text-align: center;
     color: black;
     font-weight: 600;
@@ -205,7 +213,7 @@
     padding: 12px;
   }
 
-  .p-datatable-tbody > tr > td {
+  .p-datatable-tbody>tr>td {
     text-align: center;
     border: none !important;
     color: #fff;
@@ -215,16 +223,16 @@
   .p-datatable-tbody {
     background-color: #2d2d2d;
 
-    > tr:nth-child(odd) {
+    >tr:nth-child(odd) {
       background-color: rgba(65, 65, 65, 1);
     }
 
-    > tr:nth-child(even) {
+    >tr:nth-child(even) {
       background-color: #000;
     }
   }
 
-  .p-datatable-emptymessage > td {
+  .p-datatable-emptymessage>td {
     background-color: #2d2d2d !important;
     color: #fff !important;
     text-align: center;
@@ -279,6 +287,10 @@
           width: 75%;
           padding: 14px 0;
           border-radius: 5px;
+
+          &:hover {
+            background-color: darken(#09BC95, 10%);
+          }
         }
       }
     }
