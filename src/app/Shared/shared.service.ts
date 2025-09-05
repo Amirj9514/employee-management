@@ -8,18 +8,20 @@ import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
+import { NavController } from '@ionic/angular';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SharedService {
-    sharedData = new BehaviorSubject({});
+  sharedData = new BehaviorSubject({});
+  constructor(private httpClient: HttpClient, private router: Router , private navCtrl: NavController) {}
 
-  constructor(
-    private httpClient: HttpClient,
-    private router: Router,
-  ) {}
 
+  navigateBack(){
+    this.navCtrl.back();
+  }
+  
   getTimeZone() {
     return '?timezone=' + Intl.DateTimeFormat().resolvedOptions().timeZone;
   }
@@ -68,6 +70,7 @@ export class SharedService {
       ...this.sharedData.getValue(),
       [data.key]: data.val,
     });
+
     localStorage.setItem(
       'sharedData@EMPLOYEEMANAGEMENT',
       JSON.stringify(this.sharedData.value)
@@ -187,5 +190,4 @@ export class SharedService {
       .get<Blob>(environment.apiUrl + target, httpOptions)
       .pipe(catchError((error) => this.handleError(error)));
   }
-
 }

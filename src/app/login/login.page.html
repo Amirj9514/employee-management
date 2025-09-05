@@ -41,7 +41,13 @@
               <div class="num clickAnimation" (click)="removeDigit()">X</div>
             </div>
             <div class="col-12 col_pad">
-              <div class="pad_btn loginBtn clickAnimation" (click)="callApiLogin()">Login</div>
+              <div class="pad_btn loginBtn clickAnimation" (click)="callApiLogin()">
+                 @if(mainLoader) {
+                  <p-progress-spinner strokeWidth="4" fill="transparent" animationDuration=".5s" [style]="{ width: '40px', height: '40px' }" />
+                }@else {
+                  Login
+                }
+              </div>
             </div>
             <div class="col-6 col_pad">
               <div class="pad_btn scanBtn clickAnimation">Scan</div>

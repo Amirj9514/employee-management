@@ -1,9 +1,9 @@
-<ion-header [translucent]="true" class="home_page_header">
+<ion-header  class="home_page_header">
   <div class="home_page_header_content">
     <div class="home_page_header_icon">
       <ion-menu-button style="color: white;" autoHide="false"></ion-menu-button>
     </div>
-    <div class="home_page_header_title">Home</div>
+    <div class="home_page_header_title">{{userData?.access_level_detail?.defination_title || '--'}}</div>
   </div>
 </ion-header>
 
@@ -11,12 +11,12 @@
 <ion-content [fullscreen]="true" class="main_container">
   <div class="home_page_container">
     <div class="user_detail_container">
-      <div>Welcome Ali Ahmad</div>
-      <small>User Active</small>
+      <div style="text-transform: capitalize;">Welcome Ali {{userData?.staff_name || '--'}}</div>
+      <small style="text-transform: capitalize;">User {{userData?.access_level_detail?.record_status || '--'}}</small>
     </div>
     <div class="action_btn_container grid">
       <div class="col-6 md:col-4">
-        <div class="action_box">
+        <div class="action_box" (click)="redirect('time-sheet')">
           <div class="icon_container box1">
             <div class="svgIcon" appSvg="timeSheet"></div>
           </div>
@@ -41,7 +41,7 @@
       </div>
 
       <div class="col-6 md:col-4">
-        <div class="action_box">
+        <div class="action_box" (click)="redirect('notification')">
           <div class="icon_container box3">
             <div class="svgIcon" appSvg="notification"></div>
           </div>

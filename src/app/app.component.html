@@ -11,7 +11,10 @@
         <ion-toolbar>
           <div class="toolbar-row">
             <span class="menu-title">Menu</span>
-            <div class="svgIcon" appSvg="arrowRight"></div>
+            <ion-menu-toggle auto-hide="true">
+            <div  class="svgIcon" appSvg="arrowRight"></div>
+
+            </ion-menu-toggle>
           </div>
         </ion-toolbar>
       </ion-header>
@@ -44,10 +47,16 @@
         </div>
       </ion-content>
       <ion-footer>
-        <div class="logout-btn">
+          <ion-menu-toggle auto-hide="true">
+      <div class="logout-btn" (click)="logoout()">
+        <div class="svgIcon" appSvg="logout"></div>
+        <span>Logout</span>
+      </div>
+    </ion-menu-toggle>
+        <!-- <div class="logout-btn" (click)="logoout()">
           <div class="svgIcon" appSvg="logout"></div>
           <span>Logout</span>
-        </div>
+        </div> -->
       </ion-footer>
     </ion-menu>
   </div>

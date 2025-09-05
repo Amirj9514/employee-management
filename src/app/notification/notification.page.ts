@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, } from '@ionic/angular/standalone';
 import { SvgDirective } from '../Shared/directives/svg.directive';
+import { SharedService } from '../Shared/shared.service';
 @Component({
   selector: 'app-notification',
   templateUrl: './notification.page.html',
@@ -23,7 +24,7 @@ export class NotificationPage implements OnInit {
     { table: '08', section: 'Grand Budapest', date: 'July 12 12:06 PM' }
   ];
 
-  constructor() { }
+  constructor(public sharedS:SharedService) { }
 
   ngOnInit() {
   }

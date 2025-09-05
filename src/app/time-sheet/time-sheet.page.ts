@@ -5,6 +5,7 @@ import { IonContent, IonHeader } from '@ionic/angular/standalone';
 import { SvgDirective } from '../Shared/directives/svg.directive';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
+import { SharedService } from '../Shared/shared.service';
 
 
 @Component({
@@ -22,7 +23,7 @@ export class TimeSheetPage implements OnInit {
   monthlyData: any[] = [];
   products: any[] = [];
 
-  constructor() {
+  constructor(public sharedS: SharedService) {
     this.updateCurrentTime();
     setInterval(() => this.updateCurrentTime(), 60000);
   }
