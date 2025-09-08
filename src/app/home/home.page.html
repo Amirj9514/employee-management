@@ -32,7 +32,7 @@
       </div>
 
       <div class="col-6 md:col-4">
-        <div class="action_box" (click)="openClockDialog('out')">
+        <div class="action_box" (click)="openClockDialog('office')">
           <div class="icon_container box2">
             <div class="svgIcon" appSvg="clockIn"></div>
           </div>
@@ -57,7 +57,7 @@
       </div>
 
       <div class="col-6 md:col-4">
-        <div class="action_box">
+        <div class="action_box" (click)="openClockDialog('in')">
           <div class="icon_container box4">
             <div class="svgIcon" appSvg="saving"></div>
           </div>
@@ -67,7 +67,7 @@
       </div>
 
       <div class="col-6 md:col-4">
-        <div class="action_box">
+        <div class="action_box" (click)="openClockDialog('out')">
           <div class="icon_container box5">
             <div class="svgIcon" appSvg="report"></div>
           </div>
