@@ -1,19 +1,25 @@
-<ion-header  class="home_page_header">
+<ion-header class="home_page_header">
   <div class="home_page_header_content">
     <div class="home_page_header_icon">
       <ion-menu-button style="color: white;" autoHide="false"></ion-menu-button>
     </div>
-    <div class="home_page_header_title">{{userData?.access_level_detail?.defination_title || '--'}}</div>
+    <div class="home_page_header_title">
+      {{ userData?.access_level_detail?.defination_title || '--' }}
+    </div>
   </div>
 </ion-header>
-
 
 <ion-content [fullscreen]="true" class="main_container">
   <div class="home_page_container">
     <div class="user_detail_container">
-      <div style="text-transform: capitalize;">Welcome Ali {{userData?.staff_name || '--'}}</div>
-      <small style="text-transform: capitalize;">User {{userData?.access_level_detail?.record_status || '--'}}</small>
+      <div style="text-transform: capitalize;">
+        Welcome Ali {{ userData?.staff_name || '--' }}
+      </div>
+      <small style="text-transform: capitalize;">
+        User {{ userData?.access_level_detail?.record_status || '--' }}
+      </small>
     </div>
+
     <div class="action_btn_container grid">
       <div class="col-6 md:col-4">
         <div class="action_box" (click)="redirect('time-sheet')">
@@ -26,7 +32,7 @@
       </div>
 
       <div class="col-6 md:col-4">
-        <div class="action_box">
+        <div class="action_box" (click)="openClockDialog('out')">
           <div class="icon_container box2">
             <div class="svgIcon" appSvg="clockIn"></div>
           </div>
@@ -69,8 +75,9 @@
           <div class="description">sheets for every report</div>
         </div>
       </div>
+
       <div class="col-6 md:col-4">
-        <div class="action_box">
+        <div class="action_box" (click)="openQrDialog()">
           <div class="icon_container box6">
             <div class="svgIcon" appSvg="qrCode"></div>
           </div>
@@ -78,10 +85,10 @@
           <div class="description">All QR codes</div>
         </div>
       </div>
-
     </div>
+
     <div class="history_container grid w-full">
-      @for (item of [1,2,3]; track $index) {
+      @for (item of [1, 2, 3]; track $index) {
       <div class="col-12 md:col-4">
         <div class="order_card">
           <div class="table_container">
@@ -97,9 +104,7 @@
                 <div>Section: Grand Budapest</div>
                 <div>Date: july 12 12:06 PM</div>
               </div>
-              <div class="accept_btn">
-                Accept
-              </div>
+              <div class="accept_btn">Accept</div>
             </div>
           </div>
         </div>
@@ -107,4 +112,49 @@
       }
     </div>
   </div>
+
+  <ion-modal [isOpen]="showQrModal" (didDismiss)="closeQrDialog()" cssClass="qr-custom-modal">
+    <ng-template>
+      <div class="qr-modal-container">
+        <h3>Scan the QR</h3>
+        <div appSvg="qr" class="qr-image"></div>
+        <ion-button expand="block" color="primary" (click)="closeQrDialog()">Done</ion-button>
+      </div>
+    </ng-template>
+  </ion-modal>
+
+  <ion-modal [isOpen]="showClockModal" (didDismiss)="closeClockDialog()" cssClass="custom-clock-modal">
+    <ng-template>
+
+      <div *ngIf="clockDialogType === 'out'" class="dialog-container">
+        <div class="dialog-icon box2"><div appSvg="clockIn"></div></div>
+        <h4>Confirm Clock Out?</h4>
+        <p>Are you sure you want to clock out?<br>
+        Worked Hours: <strong>7 hours 45 min today</strong></p>
+        <div class="dialog-actions">
+          <ion-button expand="block" color="primary" (click)="closeClockDialog()">Clock Out</ion-button>
+          <ion-button expand="block" (click)="closeClockDialog()">Cancel</ion-button>
+        </div>
+      </div>
+
+      <div *ngIf="clockDialogType === 'in'" class="dialog-container">
+        <div class="dialog-icon box2"><div appSvg="clockIn"></div></div>
+        <h4>Let's Get To Work</h4>
+        <p>Good morning, let's get started<br>
+        Monday 9:30 AM July 12, 2025</p>
+        <div class="dialog-actions">
+          <ion-button expand="block" color="primary" (click)="closeClockDialog()">Clock In</ion-button>
+        </div>
+      </div>
+
+      <div *ngIf="clockDialogType === 'office'" class="dialog-container">
+        <div class="dialog-icon box3"><div appSvg="permission"></div></div>
+        <h4>Out of Office Permission</h4>
+        <p>You cannot clock in due to being away from office radius.</p>
+        <div class="dialog-actions">
+          <ion-button expand="block" color="primary" (click)="closeClockDialog()">Okay</ion-button>
+        </div>
+      </div>
+    </ng-template>
+  </ion-modal>
 </ion-content>
