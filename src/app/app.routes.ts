@@ -27,6 +27,10 @@ export const routes: Routes = [
     path: '',
     redirectTo: 'login',
     pathMatch: 'full',
+  },  {
+    path: 'schedule',
+    loadComponent: () => import('./schedule/schedule.page').then( m => m.SchedulePage)
   },
+
 
 ];
