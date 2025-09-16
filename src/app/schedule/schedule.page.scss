@@ -1,0 +1,131 @@
+.home_page_header {
+    background-color: #2d2d2d;
+    box-shadow: 0px 4px 10px 0px #00000040;
+    padding: 32px 25px;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .home_page_header_content {
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    .home_page_header_icon {
+        position: absolute;
+        left: 25px;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #004aca;
+        border-radius: 10px;
+        cursor: pointer;
+
+        .svgIcon {
+            font-size: 20px;
+            color: #fff;
+        }
+    }
+
+    .home_page_header_title {
+        width: 100%;
+        user-select: none;
+        text-align: center;
+        font-size: 20px;
+        color: #fff;
+        font-weight: 600;
+    }
+}
+
+
+
+::ng-deep {
+
+    .custom-calendar{
+        height: calc(100vh - 108px) !important;
+    }
+    .fc-scrollgrid {
+        border: none !important;
+        color: white;
+    }
+
+    .fc-header-toolbar {
+        .fc-toolbar-chunk {
+            .fc-button-group {
+                .fc-prev-button {
+                    background-color: transparent !important;
+                    border: none !important;
+                }
+
+                .fc-next-button {
+                    background-color: transparent !important;
+                    border: none !important;
+                }
+
+                .fc-dayGridMonth-button,
+                .fc-timeGridWeek-button,
+                .fc-timeGridDay-button {
+                    border: 1px solid #E3E6EE !important;
+                    background-color: transparent !important;
+                    color: white !important;
+                    text-transform: capitalize !important;
+                    border-radius: 10px !important;
+                    padding: 10px 20px !important;
+                }
+
+                .fc-timeGridWeek-button{
+                    margin-left: 10px !important;
+                    margin-right: 10px !important;
+                }
+
+                .fc-button-active{
+                    background-color: #004ACA !important;
+                    border: 1px solid #004ACA !important;
+                }
+            }
+
+            .fc-today-button {
+                background-color: #60BC94 !important;
+                text-transform: capitalize !important;
+            }
+
+            .fc-toolbar-title{
+                color: white !important;
+            }
+        }
+    }
+
+    .fc-col-header {
+        overflow: hidden !important;
+        margin-bottom: 30px !important;
+        border-radius: 14px !important;
+
+        .fc-col-header-cell {
+            padding: 20px !important;
+            border: none !important;
+            background-color: #2D2D2D !important;
+
+            .fc-col-header-cell-cushion {
+                font-size: 16px !important;
+                color: white !important;
+            }
+        }
+    }
+
+    .fc-daygrid-day-top {
+        a {
+            font-size: 16px !important;
+            color: white !important;
+        }
+
+    }
+
+
+}
+
+// fc-day fc-day-tue fc-day-today fc-daygrid-day
+
+// fc-daygrid-day-frame fc-scrollgrid-sync-inner
