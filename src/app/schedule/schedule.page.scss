@@ -40,31 +40,21 @@
     }
 }
 
-
-
 ::ng-deep {
 
-    .custom-calendar{
+    .custom-calendar {
         height: calc(100vh - 108px) !important;
     }
+
     .fc-scrollgrid {
         border: none !important;
         color: white;
     }
 
     .fc-header-toolbar {
+        margin-top: 1.5rem;
         .fc-toolbar-chunk {
             .fc-button-group {
-                .fc-prev-button {
-                    background-color: transparent !important;
-                    border: none !important;
-                }
-
-                .fc-next-button {
-                    background-color: transparent !important;
-                    border: none !important;
-                }
-
                 .fc-dayGridMonth-button,
                 .fc-timeGridWeek-button,
                 .fc-timeGridDay-button {
@@ -76,24 +66,31 @@
                     padding: 10px 20px !important;
                 }
 
-                .fc-timeGridWeek-button{
+                .fc-timeGridWeek-button {
                     margin-left: 10px !important;
                     margin-right: 10px !important;
                 }
 
-                .fc-button-active{
+                .fc-button-active {
                     background-color: #004ACA !important;
                     border: 1px solid #004ACA !important;
+                }
+
+                .fc-prev-button,
+                .fc-next-button {
+                    background-color: transparent !important;
+                    border: none !important;
+                    color: white !important;
                 }
             }
 
             .fc-today-button {
-                background-color: #60BC94 !important;
-                text-transform: capitalize !important;
+                display: none !important;
             }
 
-            .fc-toolbar-title{
+            .fc-toolbar-title {
                 color: white !important;
+                margin-left: 10px !important;
             }
         }
     }
@@ -120,12 +117,10 @@
             font-size: 16px !important;
             color: white !important;
         }
-
     }
 
+    .fc-day-today {
+        background: transparent !important;
+    }
 
 }
-
-// fc-day fc-day-tue fc-day-today fc-daygrid-day
-
-// fc-daygrid-day-frame fc-scrollgrid-sync-inner
