@@ -13,7 +13,12 @@
       <div class="details">
         <div class="text-3xl mb-2">Muhammad Ali</div>
         <div class="text-sm white-space-nowrap" style="color: #979797;">
-          Monday 9:30 AM July 12, 2025
+          @if(allTimeSheetData) {
+            {{allTimeSheetData?.week_start}} - {{allTimeSheetData?.week_end}}
+          }@else{
+            Loading...
+          }
+          
         </div>
       </div>
       <div class="current-time flex align-items-center gap-2">
@@ -40,7 +45,7 @@
     </div>
 
     <div class="table-wrapper">
-      <p-table [value]="products" stripedRows [tableStyle]="{'min-width': '50rem'}">
+      <p-table [value]="timeSheetData" stripedRows [tableStyle]="{'min-width': '50rem'}">
         <ng-template pTemplate="header">
           <tr>
             <th>Date</th>
@@ -56,42 +61,45 @@
               'background-color': rowIndex % 2 === 0 ? 'rgba(65, 65, 65, 1)' : 'black',
               'color': 'white'
             }">
-            <td>{{ product.date }}</td>
-            <td>{{ product.day }}</td>
-            <td>{{ product.status }}</td>
-            <td>{{ product.clockIn }}</td>
-            <td>{{ product.clockOut }}</td>
-            <td>{{ product.hours }}</td>
+            <td>{{ product?.date || 'N/A' }}</td>
+            <td>{{ product?.day || 'N/A' }}</td>
+            <td>{{ product?.event_type || 'N/A' }}</td>
+            <td>{{ (product?.event_time_in | date :'hh:mm aa') || 'N/A' }}</td>
+            <td>{{ (product?.event_time_out | date :'hh:mm aa') || 'N/A' }}</td>
+            <td>{{ product?.hours || 'N/A' }}</td>
           </tr>
         </ng-template>
       </p-table>
     </div>
 
-    <div *ngFor="let item of products" class="data-card">
+    @for (item of timeSheetData; track $index) {
+       <div class="data-card">
       <div class="flex justify-content-between gap-2">
         <div>Date</div>
-        <div>{{ item.date }}</div>
+        <div>{{ item?.date || 'N/A' }}</div>
       </div>
       <div class="flex justify-content-between">
         <div>Day</div>
-        <div>{{ item.day }}</div>
+        <div>{{ item?.day || 'N/A' }}</div>
       </div>
       <div class="flex justify-content-between">
         <div>Status</div>
-        <div>{{ item.status }}</div>
+        <div>{{ item?.event_type || 'N/A' }}</div>
       </div>
       <div class="flex justify-content-between">
         <div>Clock In</div>
-        <div>{{ item.clockIn }}</div>
+        <div>{{  (item?.event_time_in | date :'hh:mm aa')|| 'N/A' }}</div>
       </div>
       <div class="flex justify-content-between">
         <div>Clock Out</div>
-        <div>{{ item.clockOut }}</div>
+        <div>{{ (item?.event_time_out | date :'hh:mm aa') || 'N/A' }}</div>
       </div>
       <div class="flex justify-content-between">
         <div>Hours</div>
-        <div>{{ item.hours }}</div>
+        <div>{{ item?.hours || 'N/A' }}</div>
       </div>
     </div>
+    }
+   
   </div>
 </ion-content>

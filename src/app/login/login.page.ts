@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent } from '@ionic/angular/standalone';
@@ -6,6 +6,7 @@ import { SharedService } from '../Shared/shared.service';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { ShowToastService } from '../Shared/show-toast.service';
 import { NavController } from '@ionic/angular';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -14,11 +15,13 @@ import { NavController } from '@ionic/angular';
   standalone: true,
   imports: [IonContent, CommonModule, FormsModule, ProgressSpinnerModule],
 })
-export class LoginPage implements OnInit {
-  activeStep: 'id' | 'pass' = 'id';
+export class LoginPage implements OnInit, OnDestroy {
+  private destroy$ = new Subject<void>();
+  activeStep: 'token' | 'id' | 'pass' = 'token';
   userId: string = '';
   password: string = '';
   mainLoader: boolean = false;
+  login_token: string = '';
 
   constructor(
     private sharedS: SharedService,
@@ -26,15 +29,30 @@ export class LoginPage implements OnInit {
     private navCtrl: NavController
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.sharedS
+      .getData()
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((res: any) => {
+        if (res?.login_token) {
+          this.activeStep = 'id';
+          this.login_token = res?.login_token;
+        } else {
+          this.activeStep = 'token';
+          this.login_token = '';
+        }
+      });
+  }
 
-  changeStep(step: 'id' | 'pass') {
+  changeStep(step: 'id' | 'pass' | 'token') {
     this.activeStep = step;
   }
 
   addDigit(num: number) {
-    if(this.mainLoader) return;
-    if (this.activeStep === 'id') {
+    if (this.mainLoader) return;
+    if (this.activeStep === 'token') {
+      this.login_token += num.toString();
+    } else if (this.activeStep === 'id') {
       this.userId += num.toString();
     } else {
       this.password += num.toString();
@@ -42,25 +60,47 @@ export class LoginPage implements OnInit {
   }
 
   removeAll() {
-     if(this.mainLoader) return;
+    if (this.mainLoader) return;
     if (this.activeStep === 'id') {
       this.userId = '';
+    } else if (this.activeStep === 'token') {
+      this.login_token = '';
     } else {
       this.password = '';
     }
   }
 
   removeDigit() {
-     if(this.mainLoader) return;
+    if (this.mainLoader) return;
     if (this.activeStep === 'id') {
       this.userId = this.userId.slice(0, -1);
+    } else if (this.activeStep === 'token') {
+      this.login_token = this.login_token.slice(0, -1);
     } else {
       this.password = this.password.slice(0, -1);
     }
   }
 
   callApiLogin() {
-     if(this.mainLoader) return;
+    if (this.mainLoader) return;
+
+    if (this.activeStep === 'token') {
+      if (!this.login_token) {
+        this.showToastS.setToast({
+          show: true,
+          message: 'Please Enter Your Token',
+        });
+      } else if (this.login_token !== '131004') {
+        this.showToastS.setToast({
+          show: true,
+          message: 'Invalid Token',
+        });
+      } else {
+        this.activeStep = 'id';
+        this.sharedS.insertData({ key: 'login_token', val: this.login_token });
+      }
+      return;
+    }
     if (!this.userId) {
       this.showToastS.setToast({
         show: true,
@@ -105,8 +145,7 @@ export class LoginPage implements OnInit {
               show: true,
               message: 'Login successful!',
             });
-            console.log('Login response:', res);
-            
+      
             this.sharedS.insertData({ key: 'userData', val: res });
             this.navCtrl.navigateRoot('/home');
           } else {
@@ -128,12 +167,22 @@ export class LoginPage implements OnInit {
   }
 
   cancelLogin() {
-     if(this.mainLoader) return;
+    if (this.mainLoader) return;
     if (this.activeStep === 'id') {
       this.userId = '';
       return;
     }
     this.activeStep = 'id';
     this.password = '';
+  }
+
+  ionViewWillLeave() {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }

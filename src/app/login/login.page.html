@@ -19,9 +19,12 @@
         <div class="login_form">
           <div class="login_form_title text-center">Welcome Back, Team</div>
           <div class="login_form_subtitle text-center">
-            @if(activeStep === 'id') {
-            <div>{{userId || 'Enter ID' }}</div>
-            } @else {
+            @if(activeStep === 'token') {
+            <div class="token_feild">NOVA-{{login_token}}</div>
+            
+            }@else if (activeStep === 'id') {
+              <div>{{userId || 'Enter ID' }}</div>
+            }@else{
             <div>{{password || 'Enter Password' }}</div>
             }
           </div>
@@ -44,6 +47,8 @@
               <div class="pad_btn loginBtn clickAnimation" (click)="callApiLogin()">
                  @if(mainLoader) {
                   <p-progress-spinner strokeWidth="4" fill="transparent" animationDuration=".5s" [style]="{ width: '40px', height: '40px' }" />
+                }@else if(activeStep === 'token') {
+                  Next
                 }@else {
                   Login
                 }
